@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">MFA</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">asetuset</string>
+    <string name="location_fetching">Yritämme selvittää missä olet</string>
+    <string name="compass_accuracy_low">Please re-calibrate compass by waving your device in a figure 8 motion.</string>
+
+    <string-array name="crap">
+        <item>1 Building Recognition</item>
+    </string-array>
+
+    <string name="title_activity_activity__poi">Point of Interest</string>
+    <string name="title_activity_activity__poimain_list_view">Lista</string>
+    <string name="title_activity_activity__image_full_view">Activity_ImageFullView</string>
+
+    <string name="search_hint">Nimi/Tyyli/Vuosi</string>
+    <string name="title_activity_activity__search_result">Haku</string>
+    <string name="title_activity_activity_description">Activity_description</string>
+    <string name="title_activity_main">Luokat</string>
+    <string name="searchTitle">etsiä</string>
+    <string name="search_toolbar_title">Haku</string>
+    <string name="detail_fab_navi_title">navigaatio</string>
+    <string name="detail_fab_share_title">Jakaa</string>
+    <string name="detail_tv_designer">Arkkitehti</string>
+    <string name="detail_tv_year">Vuosi</string>
+    <string name="detail_tv_3d">3D Malli</string>
+    <string name="detail_tv_audio">Audio</string>
+    <string name="detail_tv_video">Video</string>
+    <string name="detail_tv_language">Kieli</string>
+    <string name="detail_tv_readmore">LUE LISÄÄ</string>
+    <string name="poiList_menu_track">Klikkaa seurata</string>
+    <string name="poiList_menu_n_track">Klikkaa lopettaa seurata</string>
+    <string name="poiList_menu_show_list">Näytä Lista</string>
+    <string name="poiList_menu_search">Haku</string>
+    <string name="poiList_menu_refresh">virkistää</string>
+    <string name="detail_toast_audio">No audio for this POI :(</string>
+    <string name="detail_toast_video">No vide for this POI :(</string>
+    <string name="detail_fab_web_title">Website</string>
+    <string name="detail_txt_competition">Competition</string>
+    <string name="detail_toast_web">No website yet :)</string>
+    <string name="detail_designer">Designer</string>
+    <string name="detail_year">Year</string>
+    <string name="detail_txt_credit">Credits</string>
+
+
+</resources>

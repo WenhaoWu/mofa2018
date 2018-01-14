@@ -1,0 +1,8 @@
+body{
+    background-color: transparent;
+}
+
+.overlay {
+    display:block;
+    margin: auto;
+}

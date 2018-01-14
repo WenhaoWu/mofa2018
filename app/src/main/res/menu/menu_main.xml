@@ -1,0 +1,14 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mofa.metropolia.architectmuseo.Main2Activity">
+
+    <item
+        android:id="@+id/action_refresh"
+        android:orderInCategory="100"
+        android:title="@string/poiList_menu_refresh"
+        android:icon="@drawable/ic_refresh_black_24dp"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+</menu>

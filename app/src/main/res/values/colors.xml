@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pri" type="color">#FFEA00</item>
+    <item name="pri_dark" type="color">#424242</item>
+    <item name="acc" type="color">#9575CD</item>
+    <item name="acc_clicked" type="color">#673AB7</item>
+    <item name="bac" type="color">#FAFAFA</item>
+    <item name="txt" type="color">#455a64</item>
+    <item name="nav" type="color">#FDD835</item>
+
+    <color name="white">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="black_semi_transparent">#81000000</color>
+
+    <color name="text_primary">#ffffffff</color>
+    <color name="text_secondary">#99ffffff</color>
+</resources>

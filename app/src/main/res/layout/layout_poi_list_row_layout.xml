@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:id="@+id/POIRowImage"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="6dip"
+        android:contentDescription="POI"/>
+    
+    <TextView
+        android:id="@+id/POIRowSecLine"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/POIRowImage"
+        android:ellipsize="marquee"
+        android:lines="1"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/POIRowFriLine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/POIRowSecLine"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/POIRowImage"
+        android:layout_alignWithParentIfMissing="true"
+        android:lines="1"
+        android:ellipsize="marquee"
+        android:textSize="16sp" />
+
+    <RatingBar
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:visibility="invisible"
+        android:id="@+id/POIRowRateBar"
+        android:layout_toRightOf="@+id/POIRowImage"
+        android:layout_toEndOf="@+id/POIRowImage"
+        android:layout_below="@+id/POIRowFriLine"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/POIRowRateBar"
+        android:layout_toEndOf="@+id/POIRowRateBar"
+        android:layout_below="@+id/POIRowFriLine"
+        android:id="@+id/POIRowRateScore"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="16dp"/>
+
+
+</RelativeLayout>

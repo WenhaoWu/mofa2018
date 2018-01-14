@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">MFA</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Setting</string>
+    <string name="location_fetching">Trying to find out where you are</string>
+    <string name="compass_accuracy_low">Please re-calibrate compass by waving your device in a figure 8 motion.</string>
+
+    <string-array name="crap">
+        <item>1 Building Recognition</item>
+    </string-array>
+
+
+    <string name="title_activity_activity__poi">Detail</string>
+    <string name="title_activity_activity__poimain_list_view">List</string>
+    <string name="title_activity_activity__image_full_view">Activity_ImageFullView</string>
+
+    <string name="search_hint">Name/Style/Year</string>
+
+    <string name="title_activity_activity__search_result">Search</string>
+    <string name="title_activity_activity_description">Activity_description</string>
+    <string name="title_activity_main">Categories</string>
+
+    <string name="searchTitle">search for </string>
+    <string name="search_toolbar_title">Search</string>
+    <string name="detail_fab_navi_title">navigation</string>
+    <string name="detail_fab_share_title">Share</string>
+    <string name="detail_tv_designer">Designer</string>
+    <string name="detail_tv_year">Year</string>
+    <string name="detail_tv_3d">3D Model</string>
+    <string name="detail_tv_audio">Audio</string>
+    <string name="detail_tv_video">Video</string>
+    <string name="detail_tv_language">languages</string>
+    <string name="detail_tv_readmore">READ MORE</string>
+    <string name="poiList_menu_track">Click to track</string>
+    <string name="poiList_menu_n_track">Click to stop track</string>
+    <string name="poiList_menu_show_list">Show List</string>
+    <string name="poiList_menu_search">Search</string>
+    <string name="poiList_menu_refresh">Refresh</string>
+    <string name="detail_toast_audio">No audio for this POI :(</string>
+    <string name="detail_toast_video">No vide for this POI :(</string>
+    <string name="detail_fab_web_title">Website</string>
+    <string name="detail_txt_competition">Competition</string>
+    <string name="detail_toast_web">No website yet :)</string>
+    <string name="detail_designer">Designer</string>
+    <string name="detail_year">Year</string>
+    <string name="detail_txt_credit">Credits</string>
+    <string name="emtpy_no_permission_location">No permission for location</string>
+    <string name="empty_again">Click to try again</string>
+
+
+</resources>
