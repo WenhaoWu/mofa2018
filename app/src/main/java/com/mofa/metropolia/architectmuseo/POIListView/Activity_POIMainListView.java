@@ -103,7 +103,7 @@ public class Activity_POIMainListView extends AppCompatActivity{
         super.onStop();
         mlat = 0;
         mlong = 0;
-        proximiio.removeListener(listener);
+        if (proximiio!=null)proximiio.removeListener(listener);
         Activity_MainActivity.foreground--;
     }
 

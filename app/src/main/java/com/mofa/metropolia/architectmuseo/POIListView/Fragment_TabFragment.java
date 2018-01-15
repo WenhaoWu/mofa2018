@@ -38,6 +38,7 @@ import com.mofa.metropolia.architectmuseo.POIDetail.Activity_POIActivity;
 import com.mofa.metropolia.architectmuseo.POIRecognition.CamActivity;
 import com.mofa.metropolia.architectmuseo.R;
 import com.mofa.metropolia.architectmuseo.Utils.ImageLoader;
+import com.mofa.metropolia.architectmuseo.Utils.PermissionHelper;
 
 import org.json.JSONArray;
 
@@ -124,6 +125,10 @@ public class Fragment_TabFragment extends Fragment {
         fab_cam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!PermissionHelper.isCameratPermissionAllow(getContext())){
+                    Toast.makeText(getContext(), "No Permission", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent();
                 intent.setClass(getContext(), CamActivity.class);
                 intent.putExtra("mode", 1);

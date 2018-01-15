@@ -26,6 +26,22 @@ public class ImageLoader {
                 .into(imageView);
     }
 
+    public static void loadImageMaxPlaceholder(
+            Context context, String url, ImageView imageView,
+            int maxWidth, int maxHeight, int placeholderRes){
+
+        int size = (int) Math.ceil(Math.sqrt(maxWidth * maxHeight));
+
+        Picasso.with(context)
+                .load(url)
+                .transform(new BitmapTransform(maxWidth, maxHeight))
+                .memoryPolicy(MemoryPolicy.NO_STORE)
+                .resize(size, size)
+                .centerInside()
+                .placeholder(placeholderRes)
+                .into(imageView);
+    }
+
     public static void loadImage(Context context, String url, ImageView imageView){
 
         Picasso.with(context)

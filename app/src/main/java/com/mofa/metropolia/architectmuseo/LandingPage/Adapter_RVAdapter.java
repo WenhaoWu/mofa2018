@@ -57,14 +57,14 @@ public class Adapter_RVAdapter extends android.support.v7.widget.RecyclerView.Ad
         String imgUrl;
         if (position==0){
             holder.txtV.setText("All");
-            imgUrl = "http://www.arkkitehtuurimuseo.fi/newpro/Wikitude_1/public/img/logot_app-2.jpg";
+            imgUrl = "http://www.arkkitehtuurimuseo.fi/newpro/Wikitude_1/public/img/placeholder.jpg";
         }
         else {
             holder.txtV.setText(dataList.get(position-1).getCateName());
             imgUrl = dataList.get(position-1).getImage64();
         }
 
-        ImageLoader.loadImageMax(mContext, imgUrl, holder.imgV, 800 ,220);
+        ImageLoader.loadImageMaxPlaceholder(mContext, imgUrl, holder.imgV, 800 ,220, R.drawable.placeholder);
 
         holder.imgV.setOnClickListener(new View.OnClickListener() {
             @Override

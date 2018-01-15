@@ -51,6 +51,7 @@ import com.mofa.metropolia.architectmuseo.Utils.PermissionHelper;
 
 import org.json.JSONArray;
 
+import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -71,6 +72,8 @@ public class Fragment_Location extends Fragment {
 
     private static final String TAG = "LocationFragment";
     private static final String ARG_PARM3 = "CategoryString";
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int LOCATION_REQUEST_CODE = 101;
 
     private Adapter_ListAdapter adapter;
     private RecyclerView listView;
@@ -132,6 +135,26 @@ public class Fragment_Location extends Fragment {
         fab_cam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!PermissionHelper.isCameratPermissionAllow(getContext())){
+                    Toast.makeText(getContext(), "Need Permission", Toast.LENGTH_SHORT).show();
+
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                            Manifest.permission.CAMERA)) {
+
+                        ActivityCompat.requestPermissions(getActivity(),
+                                new String[]{Manifest.permission.CAMERA},
+                                CAMERA_REQUEST_CODE);
+
+                    } else {
+
+                        ActivityCompat.requestPermissions(getActivity(),
+                                new String[]{Manifest.permission.CAMERA},
+                                CAMERA_REQUEST_CODE);
+                    }
+
+
+                    return;
+                }
                 Intent intent = new Intent();
                 intent.setClass(getContext(), CamActivity.class);
                 intent.putExtra("mode", 1);
@@ -139,21 +162,87 @@ public class Fragment_Location extends Fragment {
             }
         });
 
+        emptyContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        boolean allow = PermissionHelper.isLocationPermissionAllow(getContext());
+                boolean allow = PermissionHelper.isLocationPermissionAllow(getContext());
+                if (allow){
+                    requestData();
+                    return;
+                }
 
-        if (allow){
-//            String url = buildUrlWithPermission();
-//            buildList(url);
-        }
-        else{
-            Log.e(TAG, "onCreateView: here");
-//            listView.setVisibility(View.GONE);
-//            emptyContainer.setVisibility(View.VISIBLE);
-        }
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                            LOCATION_REQUEST_CODE);
+
+                } else {
+
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                            LOCATION_REQUEST_CODE);
+                }
+            }
+        });
+
+        this.requestData();
 
         return myView;
     }
+
+    private void requestData(){
+        boolean allow = PermissionHelper.isLocationPermissionAllow(getContext());
+
+        if (allow){
+            listView.setVisibility(View.VISIBLE);
+            emptyContainer.setVisibility(View.GONE);
+            String url = buildUrlWithPermission();
+            buildList(url);
+        }
+        else{
+            Toast.makeText(getContext(), "No Permission", Toast.LENGTH_SHORT).show();
+            listView.setVisibility(View.GONE);
+            emptyContainer.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        Log.e(TAG, "onRequestPermissionsResult: code "+requestCode );
+        switch (requestCode) {
+            case CAMERA_REQUEST_CODE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Intent intent = new Intent();
+                    intent.setClass(getContext(), CamActivity.class);
+                    intent.putExtra("mode", 1);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            }
+            case LOCATION_REQUEST_CODE: {
+                if (grantResults.length > 0
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+
+                    this.requestData();
+
+                } else {
+                    Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            }
+        }
+    }
+
 
     private void buildList(String url){
         final ArrayList<Object_POI> result = new ArrayList<>();

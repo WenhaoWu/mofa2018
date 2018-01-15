@@ -19,4 +19,10 @@ public class PermissionHelper {
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED;
     }
+
+
+    public static boolean isCameratPermissionAllow(Context context){
+        return ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED;
+    }
 }
