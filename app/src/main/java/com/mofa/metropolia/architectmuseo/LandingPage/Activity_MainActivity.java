@@ -172,23 +172,23 @@ public class Activity_MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         final ProgressDialog PD = createProgressDialog(this);
 
-        JsonArrayRequest cataReq = new JsonArrayRequest(Request.Method.GET, Constains_BackendAPI_Url.URL_GetCatagories, null,
+        JsonArrayRequest cateReq = new JsonArrayRequest(Request.Method.GET, Constains_BackendAPI_Url.URL_GetCatagories, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.e("CateResponse", response.length() + "");
                         ArrayList<Object_RVItem> result = new ArrayList<>();
-                        String cataTemp = null, imgTemp = null;
+                        String cateTemp = null, imgTemp = null;
                         for (int i = 0; i < response.length(); i++) {
                             try {
-                                cataTemp = response.getJSONObject(i).getString("cata_name");
+                                cateTemp = response.getJSONObject(i).getString("cata_name");
                                 imgTemp = response.getJSONObject(i).getString("cata_url");
                                 imgTemp = imgTemp.replace("\\", "");
                                 Log.e("response", imgTemp);
                             } catch (JSONException e) {
-                                Log.e("CataResponseErr", e.toString());
+                                Log.e("CateResponseErr", e.toString());
                             }
-                            result.add(new Object_RVItem(cataTemp, imgTemp));
+                            result.add(new Object_RVItem(cateTemp, imgTemp));
                         }
                         callBack.onSuccess(result);
                         PD.dismiss();
@@ -197,13 +197,13 @@ public class Activity_MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("CataReqErr", error.toString());
+                        Log.e("CateReqErr", error.toString());
                         Toast.makeText(getBaseContext(), error.toString(), Toast.LENGTH_SHORT).show();
                         PD.dismiss();
                     }
                 });
 
-        queue.add(cataReq);
+        queue.add(cateReq);
         PD.show();
     }
 

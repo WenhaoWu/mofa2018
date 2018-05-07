@@ -42,6 +42,8 @@
     <string name="detail_designer">Designer</string>
     <string name="detail_year">Year</string>
     <string name="detail_txt_credit">Credits</string>
+    <string name="emtpy_no_permission_location">No permission for location</string>
+    <string name="empty_again">Click to try again</string>
 
 
 </resources>
